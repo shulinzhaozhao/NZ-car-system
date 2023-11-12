@@ -6,9 +6,7 @@ customer: username:john_doe password:john_doe
 
 staff: username:mary_johnson username:mary_johnson
 
-## :love_letter: Assessment 
-
-- Overall Marks: 90/100
+## :love_letter: Assessment  Overall Marks: 90/100
 
 **Examiner's feedback on source code**
 
