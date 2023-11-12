@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Delete Customer{% endblock %}
+
+{% block content %}
+  <h2>Delete Customer</h2>
+
+  <p><strong>Customer Name:</strong> {{ customer[1] }}</p>
+  <p><strong>Address:</strong> {{ customer[2] }}</p>
+  <p><strong>Email:</strong> {{ customer[3] }}</p>
+  <p><strong>Phone Number:</strong> {{ customer[4] }}</p>
+
+  <!-- Add other customer details as needed -->
+
+  <form method="post" id="delete-form">
+    <p>Are you sure you want to delete this customer?</p>
+    <p><input type="submit" value="Yes, Delete"></p>
+  </form>
+
+  {% if msg %}
+    <p>{{ msg }}</p>
+  {% endif %}
+{% endblock %}
+
+{% block script %}
+<script>
+  // Add a confirmation dialog to the form submission
+  document.getElementById('delete-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (confirm('Are you sure you want to delete this customer?')) {
+      // If user confirms, submit the form
+      event.target.submit();
+    }
+  });
+</script>
+{% endblock %}

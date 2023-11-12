@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block title %}All Cars{% endblock %}
+
+{% block content %}
+<style>
+  #btn-group {
+    padding-top:18px;
+  }
+  #btn-group a{
+    margin:0px 12px;
+  }
+</style>
+<h2>All Cars for Rent (Staff/Admin)</h2>
+
+<!-- Add Car link at the top -->
+<div>
+  <a href="{{ url_for('add_car') }}">Add Car</a>
+</div>
+<hr>
+
+{% for car in all_rental_cars %}
+  <div>
+    <p>Car model: {{ car[1] }}</p>
+    <p>Registration Number: {{ car[2] }}</p>
+    <p>Year: {{ car[3] }}</p>
+    <p>Seating Capacity: {{ car[4] }}</p>
+    <p>Rental per Day: {{ car[5] }}</p>
+    <p>Status: {% if car[6] == 1 %}Available{% else %}Not Available{% endif %}</p>
+    <img src="/static/images/{{ car[7] }}" alt="Car Image">
+    <p id ="btn-group">
+    <a href="{{ url_for('car_details', car_id=car[0]) }}">View Details</a>
+    <a href="{{ url_for('edit_car', car_id=car[0]) }}">Edit</a>
+    <a href="{{ url_for('delete_car', car_id=car[0]) }}">Delete</a>
+    </p>
+  </div>
+  <hr>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>User Landing Page</h2>
+<p>Welcome back, {{ session['username'] }}!</p>
+  <h3>Staff Functions</h3>
+  <ul>
+    <li><a href="/view_customer_profiles">View Customer Profiles</a></li>
+    <li><a href="/view_all_cars">Manage Cars</a></li>
+    <!-- Add other staff-specific functions here if needed -->
+  </ul>
+
+{% endblock %}

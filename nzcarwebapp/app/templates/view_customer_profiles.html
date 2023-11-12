@@ -1,0 +1,39 @@
+<!-- customer_profiles.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Customer Profiles{% endblock %}
+
+{% block header %}
+  Customer Profiles
+{% endblock %}
+
+{% block content %}
+  {% if session['role'] == 'admin' %}
+    <p class="admin-links"><a href="{{ url_for('add_customer') }}">Add New Customer</a></p>
+  {% endif %}
+
+  {% if customers %}
+    <ul>
+      {% for customer in customers %}
+        <li>
+          <h2>Customer Name: {{ customer[1] }}</h2>
+          <p><strong>Address:</strong> {{ customer[2] }}</p>
+          <p><strong>Email:</strong> {{ customer[3] }}</p>
+          <p><strong>Phone Number:</strong> {{ customer[4] }}</p>
+          <p><strong>Username:</strong> {{ customer[7] }}</p>
+
+          {% if session['role'] == 'admin' %}
+            <p class="admin-links">
+              <a href="{{ url_for('edit_customer', customer_id=customer[0]) }}">Edit</a>
+              <a href="{{ url_for('delete_customer', customer_id=customer[0]) }}">Delete</a>
+            </p>
+          {% endif %}
+
+          <!-- Add other customer details as needed -->
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No customer profiles found.</p>
+  {% endif %}
+{% endblock %}

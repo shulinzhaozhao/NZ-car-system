@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add Car{% endblock %}
+
+{% block content %}
+<h2>Add New Car</h2>
+
+<form method="post" enctype="multipart/form-data">
+  <p>Car Model: <input type="text" name="car_model" required></p>
+  <p>Registration Number: <input type="text" name="registration_number" required></p>
+  <p>Year: <input type="number" name="year" required></p>
+  <p>Seating Capacity: <input type="number" name="seating_capacity" required></p>
+<Question ID="1" Shortcut="chapter 1" Order="" ElementType="chapter" >
+<LongCaption><p>Rental per Day: <input type="number" name="rental_per_day" required></p></LongCaption>
+</Question>
+  <p>Car Image: <input type="file" name="car_image" accept="image/*"></p>
+  <p><input type="submit" value="Add Car"></p>
+</form>
+
+{% if msg %}
+  <p>{{ msg }}</p>
+{% endif %}
+
+{% endblock %}

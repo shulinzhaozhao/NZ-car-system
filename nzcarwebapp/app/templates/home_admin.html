@@ -1,0 +1,21 @@
+<!-- user_landing_page.html -->
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+  User Landing Page
+{% endblock %}
+
+{% block content %}
+  <div class="content">
+    <h2>Welcome back, {{ session['username'] }}!</h2>
+
+    <h3>Admin Functions</h3>
+    <ul>
+      <li><a href="/view_customer_profiles">Manage Customers</a></li>
+      <li><a href="/view_staff_profiles">Manage Staff</a></li>
+      <li><a href="/view_all_cars">Manage Cars</a></li>
+    </ul>
+  </div>
+{% endblock %}

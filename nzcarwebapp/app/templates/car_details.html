@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Car Details{% endblock %}
+
+{% block content %}
+  <h2>Car Details</h2>
+  <p>Car model: {{ car_details[1] }}</p>
+  <p>Registration Number: {{ car_details[2] }}</p>
+  <p>Year: {{ car_details[3] }}</p>
+  <p>Seating Capacity: {{ car_details[4] }}</p>
+  <p>Rental per Day: {{ car_details[5] }}</p>
+  <p>Status: {% if car_details[6] == 1 %}Available{% else %}Not Available{% endif %}</p>
+  <img src="/static/images/{{ car_details[7] }}" alt="Car Image">
+
+{% endblock %}

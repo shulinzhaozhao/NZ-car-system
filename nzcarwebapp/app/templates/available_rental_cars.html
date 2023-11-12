@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block title %}All Cars{% endblock %}
+
+{% block content %}
+<h2>All Cars Available for Rent</h2>
+
+{% if available_rental_cars %}
+  {% for car in available_rental_cars %}
+    <div>
+      <p>Car model: {{ car[1] }}</p>
+      <p>Registration Number: {{ car[2] }}</p>
+      <p>Year: {{ car[3] }}</p>
+      <p>Seating Capacity: {{ car[4] }}</p>
+      <p>Rental per Day: {{ car[5] }}</p>
+      <img src="/static/images/{{ car[7] }}" alt="Car Image">
+      <a href="{{ url_for('car_details', car_id=car[0]) }}">View Details</a>
+    </div>
+    <hr>
+  {% endfor %}
+
+{% else %}
+  <p>No available rental cars at the moment.</p>
+{% endif %}
+
+{% endblock %}
